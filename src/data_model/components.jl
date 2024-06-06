@@ -818,8 +818,8 @@ end
         va::Union{Vector{<:Real},Missing}=missing,
         vm_lb::Union{Vector{<:Real},Missing}=missing,
         vm_ub::Union{Vector{<:Real},Missing}=missing,
-        rs::Union{Vector{<:Real},Missing}=missing,
-        xs::Union{Vector{<:Real},Missing}=missing,
+        rs::Union{Vector{<:Real},Matrix{<:Real},Missing}=missing,
+        xs::Union{Vector{<:Real},Matrix{<:Real},Missing}=missing,
         status::Status=ENABLED,
         kwargs...
     )::Dict{String,Any}
@@ -832,8 +832,8 @@ function create_voltage_source(bus::String, connections::Vector{Int};
     va::Union{Vector{<:Real},Missing}=missing,
     vm_lb::Union{Vector{<:Real},Missing}=missing,
     vm_ub::Union{Vector{<:Real},Missing}=missing,
-    rs::Union{Vector{<:Real},Missing}=missing,
-    xs::Union{Vector{<:Real},Missing}=missing,
+    rs::Union{Vector{<:Real},Matrix{<:Real},Missing}=missing,
+    xs::Union{Vector{<:Real},Matrix{<:Real},Missing}=missing,
     status::Status=ENABLED,
     kwargs...
         )::Dict{String,Any}
