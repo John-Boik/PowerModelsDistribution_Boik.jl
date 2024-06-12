@@ -74,7 +74,7 @@ function _dss2eng_load!(data_eng::Dict{String,<:Any}, data_dss::OpenDssDataModel
     for (id, dss_obj) in get(data_dss, "load", Dict{String,Any}())
         nphases = dss_obj["phases"]
         bus = _parse_bus_id(dss_obj["bus1"])[1]
-        conf = nphases==1 && dss_obj["kv"]==0.24 ? DELTA : dss_obj["conn"] # check if load is connected between split-phase terminals of triplex node (nominal line-line voltage=240V), TODO: better generalization
+        conf = nphases==1 && dss_obj["kv"]==0.24 ? DELTA : ConnConfig(dss_obj["conn"]) # check if load is connected between split-phase terminals of triplex node (nominal line-line voltage=240V), TODO: better generalization
 
         if conf==DELTA
             @assert(nphases in [1, 3], "$id: only 1 and 3-phase delta loads are supported!")
