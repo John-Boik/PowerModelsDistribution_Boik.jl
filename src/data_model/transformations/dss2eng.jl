@@ -1014,7 +1014,7 @@ function parse_opendss(
         data_eng["settings"]["voltage_scale_factor"] = 1e3
         data_eng["settings"]["power_scale_factor"] = 1e3
         data_eng["settings"]["vbases_default"] = Dict{String,Real}()
-        dss_obj["basemva"] = 100.0 && @info "basemva=100 is the default value, you may want to adjust sbase_default for better convergence"
+        dss_obj["basemva"] == 100.0 && @info "basemva=100 is the default value, you may want to adjust sbase_default for better convergence"
         data_eng["settings"]["sbase_default"] = dss_obj["basemva"] * 1e3
         data_eng["settings"]["base_frequency"] = data_dss.options.defaultbasefrequency
 
